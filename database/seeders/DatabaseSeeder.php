@@ -85,7 +85,7 @@ class DatabaseSeeder extends Seeder
                 'father_name' => 'Fathorrahman',
                 'mother_name' => 'Hantini (Almh.)',
                 'child_order_text' => 'Putra dari Bapak Fathorrahman & Ibu Hantini (Almh.)',
-                'instagram' => 'syauqi',
+                'instagram' => 'https://www.instagram.com/aden_uqi08?stkn=NmY0ZTF0bzM3NGpi',
                 'photo_url' => '/images/wedding/groom.jpg',
                 'bio' => 'Dsn. Jepun Timur, Lenteng Timur, Kec. Lenteng, Kab. Sumenep',
             ]);
@@ -98,7 +98,7 @@ class DatabaseSeeder extends Seeder
                 'father_name' => 'Moh. Tahir',
                 'mother_name' => 'Isniwati',
                 'child_order_text' => 'Putri dari Bapak Moh. Tahir & Ibu Isniwati',
-                'instagram' => 'suhana',
+                'instagram' => 'https://www.instagram.com/anafanisa?stkn=NWRzeGU2aDNkc3Fx',
                 'photo_url' => '/images/wedding/bride.jpg',
                 'bio' => 'Dsn. Tonggal, Ds. Meddelan, Kec. Lenteng, Kab. Sumenep',
             ]);

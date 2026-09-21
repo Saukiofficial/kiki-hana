@@ -11,6 +11,20 @@ const InstagramIcon = ({ className = "w-3.5 h-3.5" }) => (
     </svg>
 );
 
+const formatInstagramUrl = (val) => {
+    if (!val) return '';
+    return val.startsWith('http') ? val : `https://instagram.com/${val.replace('@', '')}`;
+};
+
+const formatInstagramHandle = (val) => {
+    if (!val) return '';
+    return val
+        .replace(/^https?:\/\/(www\.)?instagram\.com\//i, '')
+        .split('?')[0]
+        .replace(/\/$/, '')
+        .replace('@', '');
+};
+
 export default function CoupleSection({ invitation }) {
     const groom = invitation.groom || invitation.couples?.find(c => c.role === 'groom');
     const bride = invitation.bride || invitation.couples?.find(c => c.role === 'bride');
@@ -76,13 +90,13 @@ export default function CoupleSection({ invitation }) {
 
                         {groom?.instagram && (
                             <a
-                                href={`https://instagram.com/${groom.instagram.replace('@', '')}`}
+                                href={formatInstagramUrl(groom.instagram)}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-1.5 mt-5 px-4 py-1.5 rounded-full border border-[#C9A45C]/50 text-xs text-[#E8DCC8] hover:text-[#F5EFE4] hover:border-[#C9A45C] bg-[#4A0D12]/50 hover:bg-[#5C1218] transition-colors font-medium shadow-md"
                             >
                                 <InstagramIcon className="w-3.5 h-3.5 text-[#C9A45C]" />
-                                <span>@{groom.instagram.replace('@', '')}</span>
+                                <span>@{formatInstagramHandle(groom.instagram)}</span>
                             </a>
                         )}
                     </div>
@@ -134,13 +148,13 @@ export default function CoupleSection({ invitation }) {
 
                         {bride?.instagram && (
                             <a
-                                href={`https://instagram.com/${bride.instagram.replace('@', '')}`}
+                                href={formatInstagramUrl(bride.instagram)}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-1.5 mt-5 px-4 py-1.5 rounded-full border border-[#C9A45C]/50 text-xs text-[#E8DCC8] hover:text-[#F5EFE4] hover:border-[#C9A45C] bg-[#4A0D12]/50 hover:bg-[#5C1218] transition-colors font-medium shadow-md"
                             >
                                 <InstagramIcon className="w-3.5 h-3.5 text-[#C9A45C]" />
-                                <span>@{bride.instagram.replace('@', '')}</span>
+                                <span>@{formatInstagramHandle(bride.instagram)}</span>
                             </a>
                         )}
                     </div>
