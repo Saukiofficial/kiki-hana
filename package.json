@@ -3,7 +3,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build",
+        "build": "vite build && node -e \"const fs=require('fs'); if(!fs.existsSync('dist')) try{fs.symlinkSync('public','dist','junction')}catch(e){}\"",
         "dev": "vite"
     },
     "devDependencies": {
