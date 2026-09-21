@@ -11,12 +11,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        if (empty(config('session.driver'))) {
-            config(['session.driver' => 'cookie']);
-        }
-        if (empty(config('cache.default'))) {
-            config(['cache.default' => 'array']);
-        }
+        config([
+            'session.driver' => config('session.driver') ?: 'cookie',
+            'cache.default' => config('cache.default') ?: 'array',
+            'mail.default' => config('mail.default') ?: 'log',
+            'queue.default' => config('queue.default') ?: 'sync',
+            'database.default' => config('database.default') ?: 'mysql',
+            'logging.default' => config('logging.default') ?: 'stderr',
+        ]);
     }
 
     /**

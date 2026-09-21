@@ -18,9 +18,22 @@ $app = Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        $exceptions->shouldRenderJsonWhen(
-            fn (Request $request) => $request->is('api/*') || $request->expectsJson(),
-        );
+        $exceptions->render(function (\Throwable $e, Request $request) {
+            $output = "EXCEPTION: " . get_class($e) . "\n";
+            $output .= "MESSAGE: " . $e->getMessage() . "\n";
+            $output .= "LOCATION: " . $e->getFile() . ":" . $e->getLine() . "\n\n";
+            $output .= "STACK TRACE:\n";
+            foreach ($e->getTrace() as $i => $t) {
+                $class = $t['class'] ?? '';
+                $type = $t['type'] ?? '';
+                $func = $t['function'] ?? '';
+                $file = $t['file'] ?? 'unknown';
+                $line = $t['line'] ?? '0';
+                $args = isset($t['args']) ? substr(json_encode($t['args'], JSON_PARTIAL_OUTPUT_ON_ERROR), 0, 300) : '';
+                $output .= "#$i {$class}{$type}{$func}($args) called at [{$file}:{$line}]\n";
+            }
+            return response($output, 500, ['Content-Type' => 'text/plain; charset=utf-8']);
+        });
     })->create();
 
 if ($storagePath = env('APP_STORAGE')) {
