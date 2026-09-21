@@ -52,9 +52,9 @@ class DatabaseSeeder extends Seeder
                     'music_title' => 'Satu Shaf Dibelakangku',
                     'music_artist' => 'Arvian Dwi',
                     'music_url' => '/musik/arvian-dwi-satu-shaf-dibelakangku.mp3',
-                    'hero_image' => '/images/wedding/couple-javanese.jpg',
-                    'cover_image' => '/images/wedding/couple-javanese.jpg',
-                    'og_image' => '/images/wedding/couple-javanese.jpg',
+                    'hero_image' => '/images/wedding/prewed-08.jpg',
+                    'cover_image' => '/images/wedding/prewed-08.jpg',
+                    'og_image' => '/images/wedding/prewed-08.jpg',
                     'background_video_url' => null,
                     'theme_settings' => [
                         'primary_theme' => 'luxury-javanese-heritage',

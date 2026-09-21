@@ -16,7 +16,7 @@ export default function HeroSection({ invitation }) {
         year: 'numeric',
     });
 
-    const heroImage = "/images/wedding/couple-javanese.jpg";
+    const heroImage = invitation?.hero_image || "/images/wedding/prewed-08.jpg";
 
     return (
         <section id="hero" className="relative min-h-[90vh] md:min-h-screen flex flex-col justify-between items-center pt-16 pb-12 px-4 sm:px-6 text-center overflow-hidden bg-javanese-heritage">

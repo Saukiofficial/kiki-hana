@@ -22,7 +22,7 @@ export default function InvitationCover({
     const dayName = weddingDateObj.toLocaleDateString('id-ID', { weekday: 'long' }).toUpperCase(); // e.g. SENIN
     const dateFormatted = weddingDateObj.toLocaleDateString('id-ID', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '.');
 
-    const bgImage = "/images/wedding/couple-javanese.jpg";
+    const bgImage = invitation?.cover_image || "/images/wedding/prewed-08.jpg";
 
     return (
         <motion.div
