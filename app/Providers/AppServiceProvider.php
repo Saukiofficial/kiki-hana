@@ -18,6 +18,8 @@ class AppServiceProvider extends ServiceProvider
             'queue.default' => config('queue.default') ?: 'sync',
             'database.default' => config('database.default') ?: 'mysql',
             'logging.default' => config('logging.default') ?: 'stderr',
+            'app.maintenance.driver' => config('app.maintenance.driver') ?: 'array',
+            'app.maintenance.store' => config('app.maintenance.store') ?: 'array',
         ]);
     }
 

@@ -49,6 +49,8 @@ $app->booted(function ($app) {
         'cache.default' => 'array',
         'queue.default' => 'sync',
         'mail.default' => 'log',
+        'app.maintenance.driver' => 'array',
+        'app.maintenance.store' => 'array',
     ]);
 });
 

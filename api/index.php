@@ -29,6 +29,8 @@ $envs = [
     'SESSION_DRIVER' => 'cookie',
     'CACHE_STORE' => 'array',
     'LOG_CHANNEL' => 'stderr',
+    'APP_MAINTENANCE_DRIVER' => 'array',
+    'APP_MAINTENANCE_STORE' => 'array',
 ];
 
 foreach ($envs as $k => $v) {
