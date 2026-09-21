@@ -1,0 +1,254 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+@source '../js/**/*.{js,jsx,ts,tsx}';
+
+@theme {
+    /* Color Palette: Luxury Javanese Heritage */
+    --color-burgundy-deep: #4A0D12;
+    --color-burgundy-rich: #5C1218;
+    --color-burgundy-dark: #32070A;
+
+    --color-red-traditional: #7A1820;
+    --color-red-deep: #5E1017;
+
+    --color-charcoal-black: #111111;
+    --color-charcoal-soft: #181314;
+    --color-charcoal-card: #1E1618;
+    --color-charcoal-elevated: #281D20;
+
+    --color-dark-brown: #2B211D;
+    --color-dark-wood: #201714;
+
+    --color-gold-antique: #C9A45C;
+    --color-gold-muted: #A98B52;
+    --color-gold-bright: #D4AF37;
+    --color-gold-light: #DFC285;
+    --color-gold-glow: #F0DFC0;
+
+    --color-warm-ivory: #E8DCC8;
+    --color-warm-ivory-light: #F4ECE1;
+    --color-soft-cream: #F5EFE4;
+
+    /* Semantic mappings for consistency */
+    --color-black-main: #111111;
+    --color-black-soft: #181314;
+    --color-black-card: #1E1618;
+    --color-black-elevated: #281D20;
+
+    --color-cream-main: #E8DCC8;
+    --color-cream-light: #F5EFE4;
+    --color-cream-dark: #D8C7AD;
+    --color-cream-muted: #BCA991;
+
+    --color-gold-main: #C9A45C;
+    --color-gold-dark: #A98B52;
+
+    /* Legacy semantic mappings for safe backward compatibility */
+    --color-ivory: #E8DCC8;
+    --color-ivory-light: #F5EFE4;
+    --color-cream: #E8DCC8;
+    --color-deep-brown: #2B211D;
+    --color-soft-brown: #BCA991;
+    --color-muted-gold: #C9A45C;
+
+    /* Typography */
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-cinzel: 'Cinzel', Georgia, serif;
+    --font-script: 'Alex Brush', cursive, serif;
+    --font-pinyon: 'Pinyon Script', cursive, serif;
+}
+
+/* Custom Base & Utilities */
+@layer base {
+    * {
+        border-color: rgba(201, 164, 92, 0.28);
+    }
+
+    html {
+        font-family: var(--font-sans);
+        color: #E8DCC8;
+        background-color: #111111;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+        overflow-x: hidden;
+        min-height: 100vh;
+        background-color: #111111;
+        color: #E8DCC8;
+    }
+
+    h1, h2, h3, h4, .font-serif {
+        font-family: var(--font-serif);
+    }
+}
+
+/* Typography Classes */
+.font-display {
+    font-family: var(--font-serif);
+    letter-spacing: -0.015em;
+}
+
+.font-editorial-caps {
+    font-family: var(--font-cinzel);
+    letter-spacing: 0.22em;
+}
+
+.font-signature {
+    font-family: var(--font-script);
+}
+
+.font-handwritten {
+    font-family: var(--font-pinyon);
+}
+
+/* Luxury Javanese Heritage Textures (Deep Burgundy x Charcoal Black x Dark Brown x Antique Gold) */
+.bg-javanese-heritage {
+    background-color: #111111;
+    background-image: 
+        radial-gradient(at 15% 15%, rgba(74, 13, 18, 0.65) 0px, transparent 65%),
+        radial-gradient(at 85% 85%, rgba(43, 33, 29, 0.8) 0px, transparent 60%),
+        radial-gradient(at 50% 50%, rgba(122, 24, 32, 0.25) 0px, transparent 70%),
+        radial-gradient(rgba(201, 164, 92, 0.04) 1px, transparent 0);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 24px 24px;
+}
+
+.bg-burgundy-luxury {
+    background-color: #4A0D12;
+    background-image: 
+        radial-gradient(at 20% 20%, rgba(122, 24, 32, 0.6) 0px, transparent 55%),
+        radial-gradient(at 80% 80%, rgba(17, 17, 17, 0.8) 0px, transparent 65%),
+        radial-gradient(rgba(201, 164, 92, 0.05) 1px, transparent 0);
+    background-size: 100% 100%, 100% 100%, 20px 20px;
+}
+
+.bg-charcoal-luxury {
+    background-color: #111111;
+    background-image: 
+        radial-gradient(at 20% 15%, rgba(74, 13, 18, 0.45) 0px, transparent 60%),
+        radial-gradient(at 80% 85%, rgba(43, 33, 29, 0.6) 0px, transparent 55%),
+        radial-gradient(rgba(232, 220, 200, 0.02) 1px, transparent 0);
+    background-size: 100% 100%, 100% 100%, 24px 24px;
+}
+
+.bg-card-javanese {
+    background-color: #181314;
+    background-image: 
+        radial-gradient(at 10% 10%, rgba(74, 13, 18, 0.35) 0px, transparent 60%),
+        radial-gradient(at 90% 90%, rgba(43, 33, 29, 0.4) 0px, transparent 60%);
+}
+
+.bg-paper-luxury {
+    background-color: #151112;
+    background-image: 
+        radial-gradient(at 10% 10%, rgba(74, 13, 18, 0.35) 0px, transparent 60%),
+        radial-gradient(at 90% 90%, rgba(43, 33, 29, 0.4) 0px, transparent 60%),
+        radial-gradient(rgba(201, 164, 92, 0.035) 1px, transparent 0);
+    background-size: 100% 100%, 100% 100%, 20px 20px;
+}
+
+/* Heritage Javanese Gebyok & Arch Frames */
+.arch-frame {
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px;
+}
+
+.arch-frame-double {
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px;
+    position: relative;
+}
+
+.arch-frame-double::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border: 1px solid rgba(201, 164, 92, 0.5);
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px;
+    pointer-events: none;
+}
+
+/* Traditional Javanese Antique Gold Styling */
+.text-gold-gradient {
+    background: linear-gradient(135deg, #DFC285 0%, #C9A45C 50%, #A98B52 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.border-gold-glow {
+    border-color: rgba(201, 164, 92, 0.45);
+    box-shadow: 0 0 20px -3px rgba(201, 164, 92, 0.2);
+}
+
+.border-gold-subtle {
+    border: 1px solid rgba(201, 164, 92, 0.35);
+}
+
+/* Dark Glassmorphism for Javanese Luxury */
+.glass-javanese {
+    background: rgba(17, 17, 17, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(201, 164, 92, 0.35);
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.7);
+}
+
+.glass-burgundy {
+    background: rgba(74, 13, 18, 0.85);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(201, 164, 92, 0.4);
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6);
+}
+
+.glass-cream {
+    background: rgba(232, 220, 200, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(201, 164, 92, 0.45);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+    color: #111111;
+}
+
+/* Custom Javanese Minimal Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #C9A45C;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #DFC285;
+}
+
+/* Animations */
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 14s linear infinite;
+}
+
+.paused {
+    animation-play-state: paused;
+}
