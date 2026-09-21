@@ -18,7 +18,7 @@ $app = Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        $exceptions->render(function (\Throwable $e, Request $request) {
+        $exceptions->respond(function ($response, \Throwable $e, Request $request) {
             $output = "EXCEPTION: " . get_class($e) . "\n";
             $output .= "MESSAGE: " . $e->getMessage() . "\n";
             $output .= "LOCATION: " . $e->getFile() . ":" . $e->getLine() . "\n\n";
@@ -39,5 +39,17 @@ $app = Application::configure(basePath: dirname(__DIR__))
 if ($storagePath = env('APP_STORAGE')) {
     $app->useStoragePath($storagePath);
 }
+
+$app->booted(function ($app) {
+    if ($app->bound('session')) {
+        $app->make('session')->setDefaultDriver('cookie');
+    }
+    config([
+        'session.driver' => 'cookie',
+        'cache.default' => 'array',
+        'queue.default' => 'sync',
+        'mail.default' => 'log',
+    ]);
+});
 
 return $app;

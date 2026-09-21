@@ -17,4 +17,10 @@ require __DIR__.'/../vendor/autoload.php';
 /** @var Application $app */
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
+$app->booted(function ($app) {
+    if ($app->bound('session')) {
+        $app->make('session')->setDefaultDriver('cookie');
+    }
+});
+
 $app->handleRequest(Request::capture());
